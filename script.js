@@ -54,10 +54,6 @@ document.querySelectorAll("[data-years]").forEach((e) => (e.textContent = thisYe
 document.querySelectorAll("[data-since-label]").forEach((e) => (e.textContent = SINCE));
 document.querySelectorAll("[data-year]").forEach((e) => (e.textContent = thisYear));
 
-// total contract value (lakh -> crore)
-const totalLakh = CLIENTS.reduce((n, c) => n + c[4], 0);
-$("#total-amount").textContent = "₹" + Math.floor(totalLakh / 100) + " Cr+";
-
 // images
 if (ABOUT_IMAGE) {
   const f = document.createElement("div");
