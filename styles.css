@@ -82,7 +82,7 @@ h3{font:600 1.1rem var(--head);letter-spacing:.03em;text-transform:uppercase;col
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .card{background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:26px}
-.card .num{font:600 2rem var(--head);color:var(--yellow);opacity:.9}
+.ico{width:72px;height:72px;display:block;margin-bottom:10px}
 .card h3{margin:6px 0 8px;color:#fff;font-size:1.15rem}
 .card p{margin:0;color:var(--muted);font-size:.95rem}
 
@@ -172,8 +172,8 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 /* process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
 .steps li{background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:26px}
-.steps span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--yellow);color:#14161a;font:600 1.2rem var(--head)}
-.steps h3{color:#fff;margin:14px 0 6px;font-size:1.05rem}
+.stepno{display:block;font:500 .78rem var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow)}
+.steps h3{color:#fff;margin:2px 0 6px;font-size:1.05rem}
 .steps p{margin:0;color:var(--muted);font-size:.93rem}
 
 /* areas */
