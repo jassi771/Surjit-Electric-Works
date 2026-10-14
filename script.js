@@ -2,7 +2,7 @@
 const SINCE = 1981;
 
 // About section photo. Set to "" to hide it.
-const ABOUT_IMAGE = "assets/about-site.webp";
+const ABOUT_IMAGE = "assets/about-panel.webp";
 
 // Clients from the company brochure: [name, director, site, year, amount in lakh]
 const CLIENTS = [
