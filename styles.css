@@ -27,7 +27,8 @@ em{font-style:normal;color:var(--yellow)}
 .bar{display:flex;align-items:center;justify-content:space-between;min-height:84px;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font:700 1.7rem/1 var(--head);letter-spacing:.01em}
 .logo em{font-style:italic;font-weight:600}
-.bolt{width:22px;height:30px;fill:var(--yellow)}
+.mark{width:44px;height:44px;border-radius:10px;display:block}
+.foot-logo{width:140px;height:auto;border-radius:14px;margin-bottom:8px}
 nav{display:flex;align-items:center;gap:14px}
 .pills{display:flex;gap:2px;background:var(--bg2);padding:5px;border-radius:999px}
 .pills a{color:var(--text);text-decoration:none;font-size:.85rem;padding:7px 15px;border-radius:999px}
