@@ -140,6 +140,7 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
   .bar{min-height:72px}
   .logo{font-size:1.4rem}
 }
+@media (max-width:1000px){.hide-md{display:none}}
 @media (max-width:640px){
   .hide-sm{display:none}
   .topbar-in{gap:16px}
