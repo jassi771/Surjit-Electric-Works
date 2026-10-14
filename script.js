@@ -24,15 +24,25 @@ const CLIENTS = [
   ["Shree Ameva Constructions", "", "Dronagiri, Uran", "2017-18", 50],
 ];
 
-// Project photos: add files to assets/gallery/ and set src.
-// The Projects section stays hidden until at least one photo has a src.
-const GALLERY = [
-  { src: "", caption: "Substation erection" },
-  { src: "", caption: "HT/LT cable laying" },
-  { src: "", caption: "Transformer commissioning" },
-  { src: "", caption: "Panel installation" },
-  { src: "", caption: "Street lighting" },
-  { src: "", caption: "Overhead lines" },
+// Projects with photos. To add a project, copy one block and put its photos in
+// assets/projects/<project-name>/. Photos and facts are all optional.
+const PROJECTS = [
+  {
+    title: "630 KVA / 11 KV Compact Substation",
+    location: "Gahlot Pharmacy College, Koperkhairne, Navi Mumbai",
+    facts: [
+      ["Capacity", "630 KVA / 11 KV"],
+      ["Delivered", "Within 45 days"],
+      ["Commissioning", "MSEDCL Team, Vashi Division"],
+    ],
+    photos: [
+      { src: "assets/projects/gahlot-substation/enclosure-outdoor.webp", caption: "Compact substation installed on its plinth" },
+      { src: "assets/projects/gahlot-substation/transformer-inside.webp", caption: "630 KVA transformer inside the enclosure" },
+      { src: "assets/projects/gahlot-substation/panels-and-plinth.webp", caption: "HT/LT panels on the foundation" },
+      { src: "assets/projects/gahlot-substation/metering-cubicle.webp", caption: "HT metering cubicle ready for commissioning" },
+      { src: "assets/projects/gahlot-substation/earthing-and-cables.webp", caption: "Earthing strips and cable laid to the plinth" },
+    ],
+  },
 ];
 // ------------------
 
@@ -62,15 +72,21 @@ $("#client-list").innerHTML = CLIENTS.map(([n, d, site, yr, amt]) =>
   `<span class="site">${esc(site)}</span><span class="yr">${esc(yr)}</span></li>`
 ).join("");
 
-// Projects section only appears once real photos are added
-const PHOTOS = GALLERY.filter((g) => g.src);
-if (!PHOTOS.length) {
+// Projects section only appears when at least one project has photos
+const PHOTOS = [];
+const shown = PROJECTS.filter((p) => p.photos && p.photos.length);
+if (!shown.length) {
   $("#projects").hidden = true;
   document.querySelector('.pills a[href="#projects"]').hidden = true;
 } else {
-  $("#gallery-grid").innerHTML = PHOTOS.map((g, i) =>
-    `<figure><button type="button" data-i="${i}" aria-label="Enlarge: ${esc(g.caption)}"><img src="${esc(g.src)}" alt="${esc(g.caption)}" loading="lazy"></button>
-    <figcaption>${esc(g.caption)}</figcaption></figure>`).join("");
+  $("#project-list").innerHTML = shown.map((p) => {
+    const facts = (p.facts || []).map(([k, v]) => `<li><span>${esc(k)}</span>${esc(v)}</li>`).join("");
+    const figs = p.photos.map((g) => {
+      const i = PHOTOS.push({ ...g, title: p.title }) - 1;
+      return `<figure><button type="button" data-i="${i}" aria-label="Enlarge: ${esc(g.caption)}"><img src="${esc(g.src)}" alt="${esc(g.caption)}" loading="lazy"></button><figcaption>${esc(g.caption)}</figcaption></figure>`;
+    }).join("");
+    return `<article class="project"><header><h3>${esc(p.title)}</h3><p>${esc(p.location || "")}</p>${facts ? `<ul class="facts">${facts}</ul>` : ""}</header><div class="gallery">${figs}</div></article>`;
+  }).join("");
 }
 
 // lightbox
@@ -78,7 +94,7 @@ const dlg = document.createElement("dialog");
 dlg.innerHTML = `<img alt=""><p></p>`;
 document.body.append(dlg);
 dlg.addEventListener("click", () => dlg.close());
-$("#gallery-grid").addEventListener("click", (e) => {
+$("#project-list").addEventListener("click", (e) => {
   const b = e.target.closest("button[data-i]");
   if (!b) return;
   const g = PHOTOS[b.dataset.i];
