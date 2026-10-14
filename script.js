@@ -2,8 +2,8 @@
 const SINCE = 1981;
 
 // Hero + about images. Drop files in assets/ and set paths here (empty = placeholder).
-const HERO_IMAGES = ["", "", ""];
-const ABOUT_IMAGE = "";
+const HERO_IMAGES = ["assets/hero-substation.webp", "assets/hero-panel.webp", "assets/hero-cable.webp"];
+const ABOUT_IMAGE = "assets/about-team.webp";
 
 // Clients from the company brochure: [name, director, site, year, amount in lakh]
 const CLIENTS = [
@@ -57,8 +57,7 @@ if (ABOUT_IMAGE) {
   const f = document.createElement("div");
   f.className = "photo";
   f.innerHTML = `<img src="${esc(ABOUT_IMAGE)}" alt="Surjit Electricals site work" loading="lazy">`;
-  $("#about-card").before(f);
-  $(".about-grid").style.gridTemplateColumns = "1fr 1fr 1fr";
+  $("#about-side").prepend(f);
 }
 
 $("#client-list").innerHTML = CLIENTS.map(([n, d, site, yr, amt]) =>

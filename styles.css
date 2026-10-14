@@ -51,10 +51,10 @@ nav{display:flex;align-items:center;gap:14px}
 .lenses{position:relative;height:340px}
 .lens{position:absolute;top:0;height:100%;width:44%;clip-path:url(#lens);
   background:#4a5261 center/cover no-repeat}
-.lens::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#ffffff10,#00000040)}
-.l1{left:0;background-color:#575f6d}
-.l2{left:27%;background-color:#7a7f87}
-.l3{left:54%;background-color:#c98a10}
+.lens::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#ffffff08,#00000030)}
+.l1{left:0;background-color:#575f6d;background-position:22% center}
+.l2{left:27%;background-color:#7a7f87;background-position:58% center}
+.l3{left:54%;background-color:#c98a10;background-position:30% center}
 .hero-copy h1{font:600 clamp(2.2rem,5vw,3.6rem)/1.15 var(--head);margin:0 0 18px}
 .y{color:var(--yellow)}
 .hero-copy p{max-width:460px;margin:0 0 30px}
@@ -63,6 +63,7 @@ nav{display:flex;align-items:center;gap:14px}
 .statband{background:var(--bg2);padding:26px 0}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .stat{border:1.5px solid var(--line);border-radius:22px;text-align:center;padding:22px 12px}
+.stat img{width:64px;height:64px;display:block;margin:0 auto 6px}
 .stat strong{display:block;font:600 2.1rem/1.2 var(--head);color:var(--yellow)}
 .stat span{font-size:.9rem;color:var(--text)}
 
@@ -80,7 +81,8 @@ h3{font:600 1.1rem var(--head);letter-spacing:.03em;text-transform:uppercase;col
 .ticks li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;background:var(--yellow);clip-path:polygon(40% 0,100% 0,60% 45%,100% 45%,30% 100%,45% 55%,0 55%)}
 
 .ph{display:grid;place-items:center;background:linear-gradient(135deg,#3b4352,#2a2f38);border:1.5px dashed var(--line);color:var(--muted);font-size:.9rem;text-align:center;padding:12px}
-.photo{aspect-ratio:4/5;border-radius:16px;overflow:hidden}
+.about-side{display:grid;gap:20px}
+.photo{aspect-ratio:16/10;border-radius:22px;overflow:hidden;border:1.5px solid var(--line)}
 .photo img{width:100%;height:100%;object-fit:cover}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
@@ -133,7 +135,6 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
   .hero-in,.about-grid,.contact-grid{grid-template-columns:1fr}
   .lenses{height:260px;max-width:420px;margin:0 auto;width:100%}
   .hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.hero-copy .cta{justify-content:center}
-  .photo{aspect-ratio:16/10}
 }
 @media (max-width:820px){
   .nav-toggle{display:block}
