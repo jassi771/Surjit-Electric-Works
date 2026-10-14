@@ -150,12 +150,6 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 
-/* company details */
-.details dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:.92rem}
-.details dt{color:var(--yellow);font:500 .8rem var(--head);letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
-.details dd{margin:0}
-.details h3{margin-top:0}
-
 /* process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
 .steps li{background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:26px}
@@ -166,15 +160,6 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 /* areas */
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .chips li{border:1.5px solid var(--line);border-radius:999px;padding:7px 18px;font-size:.9rem;background:var(--panel)}
-
-/* faq */
-.narrow{max-width:800px}
-details{background:var(--panel);border:1.5px solid var(--line);border-radius:16px;margin-bottom:12px;padding:0 20px}
-summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--yellow);font-size:1.4rem;line-height:1}
-details[open] summary::after{content:"\2212"}
-details p{margin:0 0 16px;color:var(--muted)}
 
 /* CTA band */
 .ctaband{background:var(--yellow);color:#14161a;padding:44px 0}

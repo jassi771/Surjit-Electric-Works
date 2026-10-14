@@ -53,7 +53,7 @@ if (ABOUT_IMAGE) {
   const f = document.createElement("div");
   f.className = "photo";
   f.innerHTML = `<img src="${esc(ABOUT_IMAGE)}" alt="Surjit Electricals site work" loading="lazy">`;
-  $("#about-side").prepend(f);
+  $("#about-side").append(f);
 }
 
 $("#client-list").innerHTML = CLIENTS.map(([n, d, site, yr, amt]) =>
