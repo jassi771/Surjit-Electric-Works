@@ -107,10 +107,19 @@ h3{font:600 1.1rem var(--head);letter-spacing:.03em;text-transform:uppercase;col
 .clients .yr{text-align:right;color:var(--muted);font-size:.85rem}
 .clients .dir{color:var(--text)}
 
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-.contact-list{list-style:none;padding:0;margin:0 0 24px}
-.contact-list li{margin:.9em 0}
-.contact-list strong{display:block;font:500 .8rem var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:stretch}
+.reach-list{display:flex;flex-direction:column;gap:14px}
+.reach{display:flex;align-items:center;gap:16px;background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:18px 20px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
+.reach:hover{border-color:var(--yellow);transform:translateY(-2px)}
+.reach-ic{flex:none;width:52px;height:52px;border-radius:50%;background:var(--yellow);display:grid;place-items:center}
+.reach-ic svg{width:24px;height:24px;fill:#14161a}
+.reach-tx{flex:1;min-width:0}
+.reach-tx small{display:block;font:500 .75rem var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
+.reach-tx strong{display:block;font-weight:600;font-size:1.05rem;overflow-wrap:anywhere}
+.reach-go{color:var(--yellow);font-size:1.3rem}
+.reach-note{margin:6px 4px 0;color:var(--muted);font-size:.9rem}
+.form-title{margin:0;font-size:1.4rem;color:#fff}
+.form-sub{margin:2px 0 20px;color:var(--muted);font-size:.93rem}
 .panel{background:var(--panel);border:1.5px solid var(--line);border-radius:22px;padding:28px}
 label{display:block;font-weight:500;font-size:.9rem;margin-bottom:14px}
 input,select,textarea{display:block;width:100%;margin-top:5px;padding:11px 14px;font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:12px}
@@ -196,3 +205,9 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 @media (max-width:900px){.foot-grid{grid-template-columns:1fr}}
 
 .chips li.hl{background:var(--yellow);border-color:var(--yellow);color:#14161a;font-weight:600}
+@media (max-width:480px){
+  .reach{gap:12px;padding:14px}
+  .reach-ic{width:44px;height:44px}
+  .reach-tx strong{font-size:.9rem}
+  .reach-go{display:none}
+}
