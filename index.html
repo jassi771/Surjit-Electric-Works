@@ -168,25 +168,33 @@
         <a class="btn btn-out" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Arenja+Arcade+Sector+17+Vashi+Navi+Mumbai+400703">Open in Maps</a>
       </p>
     </div>
-    <form id="enquiry" class="panel" novalidate>
-      <label>Name <input name="name" required autocomplete="name"></label>
-      <label>Phone <input name="phone" type="tel" required autocomplete="tel" inputmode="tel"></label>
-      <label>Email (optional) <input name="email" type="email" autocomplete="email"></label>
-      <label>Type of work
-        <select name="work">
-          <option>Substation / transformer</option>
-          <option>HT / LT cable laying</option>
-          <option>Wiring / installation</option>
-          <option>Street lights</option>
-          <option>MSEDCL / BEST / Reliance approvals</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label>Project details <textarea name="message" rows="4" placeholder="Location, size, timeline"></textarea></label>
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-      <button class="btn" type="submit">Send Enquiry</button>
-      <p class="note" id="form-status" role="status"></p>
-    </form>
+    <div class="panel">
+      <div class="fs-msg ok" data-fs-success></div>
+      <div class="fs-msg err" data-fs-error></div>
+      <form id="enquiry" action="https://formspree.io/f/myeknagp" method="POST">
+        <label>Name <input name="name" required autocomplete="name" data-fs-field></label>
+        <span class="fs-field-err" data-fs-error="name"></span>
+        <label>Phone <input name="phone" type="tel" required autocomplete="tel" inputmode="tel" data-fs-field></label>
+        <span class="fs-field-err" data-fs-error="phone"></span>
+        <label>Email (optional) <input name="email" type="email" autocomplete="email" data-fs-field></label>
+        <span class="fs-field-err" data-fs-error="email"></span>
+        <label>Type of work
+          <select name="work" data-fs-field>
+            <option>Substation / transformer</option>
+            <option>HT / LT cable laying</option>
+            <option>Wiring / installation</option>
+            <option>Street lights</option>
+            <option>MSEDCL / BEST / Reliance approvals</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Project details <textarea name="message" rows="4" placeholder="Location, size, timeline" data-fs-field></textarea></label>
+        <span class="fs-field-err" data-fs-error="message"></span>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New enquiry from Surjit Electricals website">
+        <button class="btn" type="submit" data-fs-submit-btn>Send Enquiry</button>
+      </form>
+    </div>
   </div>
 </section>
 </main>
@@ -200,5 +208,10 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#enquiry', formId: 'myeknagp' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

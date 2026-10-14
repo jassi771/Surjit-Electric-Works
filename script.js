@@ -1,11 +1,5 @@
 // ---- Settings ----
 const SINCE = 1981;
-const EMAIL = "surjit_electricals@yahoo.com";
-
-// Formspree: create a free form at https://formspree.io (using the email you want
-// enquiries sent to), then paste the form ID here, e.g. "xyzabcde".
-// Until it is set, the form falls back to opening the visitor's email app.
-const FORMSPREE_ID = "";
 
 // Hero + about images. Drop files in assets/ and set paths here (empty = placeholder).
 const HERO_IMAGES = ["", "", ""];
@@ -106,32 +100,3 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: "-45% 0px -50% 0px" });
 document.querySelectorAll("main > section[id]").forEach((s) => io.observe(s));
-
-// enquiry form
-const form = $("#enquiry"), status = $("#form-status");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!form.reportValidity()) return;
-  const d = new FormData(form);
-  if (d.get("_gotcha")) return;
-  if (!FORMSPREE_ID) {
-    const body = `Name: ${d.get("name")}\nPhone: ${d.get("phone")}\nEmail: ${d.get("email")}\nWork: ${d.get("work")}\n\n${d.get("message")}`;
-    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Website enquiry: " + d.get("work"))}&body=${encodeURIComponent(body)}`;
-    return;
-  }
-  const btn = form.querySelector("button");
-  btn.disabled = true;
-  status.className = "note"; status.textContent = "Sending...";
-  try {
-    const r = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-      method: "POST", body: d, headers: { Accept: "application/json" },
-    });
-    if (!r.ok) throw new Error();
-    form.reset();
-    status.className = "note ok";
-    status.textContent = "Thank you. We have received your enquiry and will call you soon.";
-  } catch {
-    status.className = "note err";
-    status.textContent = "Could not send. Please call 98924 95482 or WhatsApp us.";
-  } finally { btn.disabled = false; }
-});
