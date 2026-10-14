@@ -25,7 +25,8 @@ const CLIENTS = [
   ["Shree Ameva Constructions", "", "Dronagiri, Uran", "2017-18", 50],
 ];
 
-// Project photos: add files to assets/gallery/ and set src. Empty src = placeholder.
+// Project photos: add files to assets/gallery/ and set src.
+// The Projects section stays hidden until at least one photo has a src.
 const GALLERY = [
   { src: "", caption: "Substation erection" },
   { src: "", caption: "HT/LT cable laying" },
@@ -53,9 +54,11 @@ document.querySelectorAll("#lenses .lens").forEach((el, i) => {
   if (HERO_IMAGES[i]) el.style.backgroundImage = `url("${HERO_IMAGES[i]}")`;
 });
 if (ABOUT_IMAGE) {
-  const p = $("#about-photo");
-  p.className = "photo";
-  p.innerHTML = `<img src="${esc(ABOUT_IMAGE)}" alt="Surjit Electricals site work" loading="lazy">`;
+  const f = document.createElement("div");
+  f.className = "photo";
+  f.innerHTML = `<img src="${esc(ABOUT_IMAGE)}" alt="Surjit Electricals site work" loading="lazy">`;
+  $("#about-card").before(f);
+  $(".about-grid").style.gridTemplateColumns = "1fr 1fr 1fr";
 }
 
 $("#client-list").innerHTML = CLIENTS.map(([n, d, site, yr, amt]) =>
@@ -64,12 +67,16 @@ $("#client-list").innerHTML = CLIENTS.map(([n, d, site, yr, amt]) =>
   `<span class="site">${esc(site)}</span><span class="yr">${esc(yr)}</span></li>`
 ).join("");
 
-$("#gallery-grid").innerHTML = GALLERY.map((g, i) =>
-  `<figure>${g.src
-    ? `<button type="button" data-i="${i}" aria-label="Enlarge: ${esc(g.caption)}"><img src="${esc(g.src)}" alt="${esc(g.caption)}" loading="lazy"></button>`
-    : `<div class="ph" role="img" aria-label="Photo coming soon">Photo coming soon</div>`}
-  <figcaption>${esc(g.caption)}</figcaption></figure>`
-).join("");
+// Projects section only appears once real photos are added
+const PHOTOS = GALLERY.filter((g) => g.src);
+if (!PHOTOS.length) {
+  $("#projects").hidden = true;
+  document.querySelector('.pills a[href="#projects"]').hidden = true;
+} else {
+  $("#gallery-grid").innerHTML = PHOTOS.map((g, i) =>
+    `<figure><button type="button" data-i="${i}" aria-label="Enlarge: ${esc(g.caption)}"><img src="${esc(g.src)}" alt="${esc(g.caption)}" loading="lazy"></button>
+    <figcaption>${esc(g.caption)}</figcaption></figure>`).join("");
+}
 
 // lightbox
 const dlg = document.createElement("dialog");
@@ -79,7 +86,7 @@ dlg.addEventListener("click", () => dlg.close());
 $("#gallery-grid").addEventListener("click", (e) => {
   const b = e.target.closest("button[data-i]");
   if (!b) return;
-  const g = GALLERY[b.dataset.i];
+  const g = PHOTOS[b.dataset.i];
   dlg.querySelector("img").src = g.src;
   dlg.querySelector("img").alt = g.caption;
   dlg.querySelector("p").textContent = g.caption;
@@ -93,7 +100,7 @@ toggle.addEventListener("click", () => setNav(!nav.classList.contains("open")));
 nav.addEventListener("click", (e) => { if (e.target.closest("a")) setNav(false); });
 
 // active nav pill follows scroll
-const links = [...document.querySelectorAll(".pills a")];
+const links = [...document.querySelectorAll(".pills a:not([hidden])")];
 const io = new IntersectionObserver((entries) => {
   entries.forEach((en) => {
     if (en.isIntersecting) links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));

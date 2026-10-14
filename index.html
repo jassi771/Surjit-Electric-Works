@@ -76,7 +76,9 @@
 <section class="hero" id="top">
   <div class="wrap hero-in">
     <div class="lenses" aria-hidden="true" id="lenses">
-      <div class="lens l1"></div><div class="lens l2"></div><div class="lens l3"></div>
+      <div class="lens l1"><svg viewBox="0 0 64 64"><path d="M32 6 14 58M32 6l18 52M20 36h24M25 22h14M14 58h36M20 36l24 22M44 36 20 58"/></svg></div>
+      <div class="lens l2"><svg viewBox="0 0 64 64"><path d="M36 4 14 36h14l-4 24 26-34H36z"/></svg></div>
+      <div class="lens l3"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="8"/><path d="M32 10v14M54 32H40M32 54V40M10 32h14"/></svg></div>
     </div>
     <div class="hero-copy">
       <h1><span class="y">Powering</span> Your<br>Projects &amp; Properties</h1>
@@ -116,7 +118,17 @@
           <li>Skilled electrical engineers and supervisors</li>
         </ul>
       </div>
-      <div class="photo ph" id="about-photo" role="img" aria-label="Photo placeholder"><span>Site photo coming soon</span></div>
+      <aside class="panel details" id="about-card">
+        <h3>Company details</h3>
+        <dl>
+          <dt>Company</dt><dd>Surjit Electricals</dd>
+          <dt>Established</dt><dd><span data-since-label>1981</span></dd>
+          <dt>Status</dt><dd>Proprietorship</dd>
+          <dt>Licence</dt><dd>Government of Maharashtra approved licensed electrical contractor and consultants</dd>
+          <dt>Utilities</dt><dd>MSEDCL, BEST, Reliance Energy</dd>
+          <dt>Office</dt><dd>116-A Arenja Arcade, Sector 17, Vashi, Navi Mumbai 400703</dd>
+        </dl>
+      </aside>
     </div>
   </div>
 </section>
@@ -136,7 +148,20 @@
   </div>
 </section>
 
-<section id="projects" class="section">
+<section id="process" class="section">
+  <div class="wrap">
+    <h2 class="center">How We Work</h2>
+    <p class="center sub">A simple process from first call to commissioning.</p>
+    <ol class="steps">
+      <li><span>1</span><h3>Enquiry &amp; site visit</h3><p>Call or message us with your requirement. We visit the site and understand the load and layout.</p></li>
+      <li><span>2</span><h3>Planning &amp; approvals</h3><p>We prepare the scope and handle sanctions and permissions with MSEDCL, BEST or Reliance Energy.</p></li>
+      <li><span>3</span><h3>Erection &amp; installation</h3><p>Our licensed teams carry out substation, cabling, panel and wiring work on site.</p></li>
+      <li><span>4</span><h3>Testing &amp; commissioning</h3><p>The installation is tested, commissioned and handed over ready to energise.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects" class="section dark2">
   <div class="wrap">
     <h2 class="center">Our Projects</h2>
     <p class="center sub">A look at sites and installations we have completed.</p>
@@ -144,11 +169,42 @@
   </div>
 </section>
 
-<section id="clients" class="section dark2">
+<section id="clients" class="section">
   <div class="wrap">
     <h2 class="center">Our Clients</h2>
     <p class="center sub">Long-standing relationships with developers, hotels and institutions.</p>
     <ul class="clients" id="client-list"></ul>
+  </div>
+</section>
+
+<section id="areas" class="section dark2">
+  <div class="wrap">
+    <h2 class="center">Areas We Serve</h2>
+    <p class="center sub">Projects completed across Mumbai, Navi Mumbai and Thane.</p>
+    <ul class="chips">
+      <li>Bandra</li><li>Khar</li><li>Santacruz</li><li>Juhu</li><li>Mulund</li>
+      <li>Vashi</li><li>Sanpada</li><li>Turbhe</li><li>Nerul</li><li>Airoli</li><li>CBD Belapur</li><li>Koparkhane</li>
+      <li>Uran</li><li>Dronagiri</li><li>Asangaon</li><li>Silphata</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="wrap narrow">
+    <h2 class="center">Frequently Asked Questions</h2>
+    <p class="center sub">Quick answers to common questions.</p>
+    <details><summary>Are you a licensed contractor?</summary><p>Yes. Surjit Electricals is a Government of Maharashtra approved licensed electrical contractor and consultant, working since 1981.</p></details>
+    <details><summary>What kind of projects do you take up?</summary><p>HT/LT substations, transformer installation, XLPE cable laying, panel erection, overhead lines, street lights and electrical wiring for residential, commercial and institutional buildings.</p></details>
+    <details><summary>Can you handle approvals with the electricity company?</summary><p>Yes. We liaise with MSEDCL, BEST and Reliance Energy to obtain the sanctions, approvals and permissions your project needs.</p></details>
+    <details><summary>Which areas do you work in?</summary><p>Mainly Mumbai, Navi Mumbai and Thane, including Bandra, Khar, Vashi, Sanpada, Uran and Silphata. Call us to check for other locations.</p></details>
+    <details><summary>How do I get a quote?</summary><p>Call 98924 95482, message us on WhatsApp, or fill in the enquiry form below. We will arrange a site visit and get back to you with a quote.</p></details>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap ctaband-in">
+    <div><h2>Planning an electrical project?</h2><p>Talk to us about your substation, cabling or wiring requirement.</p></div>
+    <div class="cta"><a class="btn btn-dark" href="tel:+919892495482">Call 98924 95482</a><a class="btn btn-dark-out" href="#contact">Send an enquiry</a></div>
   </div>
 </section>
 
@@ -200,12 +256,30 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <img class="foot-logo" src="assets/logo.png" alt="Surjit Electricals, since 1981" width="140" height="143">
-    <span>Govt. Licensed Electrical Contractor &amp; Consultants · Vashi, Navi Mumbai 400703</span>
-    <span>&copy; <span data-year></span> Surjit Electricals</span>
+  <div class="wrap foot-grid">
+    <div>
+      <img class="foot-logo" src="assets/logo.png" alt="Surjit Electricals, since 1981" width="140" height="143">
+      <p>Govt. licensed electrical contractor and consultants. Erection and commissioning of HT / LT projects.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#clients">Clients</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919892495482">98924 95482</a></li>
+        <li><a href="tel:+918652525758">86525 25758</a></li>
+        <li><a href="tel:+912267912128">022-67912128</a></li>
+        <li><a href="mailto:surjit_electricals@yahoo.com">surjit_electricals@yahoo.com</a></li>
+        <li>Office 116-A, Arenja Arcade, Sector 17, Vashi, Navi Mumbai 400703</li>
+      </ul>
+    </div>
   </div>
+  <div class="wrap copy">&copy; <span data-year></span> Surjit Electricals. All rights reserved.</div>
 </footer>
+
+<a class="wa-fab" href="https://wa.me/919892495482" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.35A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.25-.45.05-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.15-.2-1.1-1.5-1.1-2.8s.7-2 1-2.25c.25-.25.55-.3.7-.3h.5c.15 0 .35 0 .55.45.2.5.7 1.7.75 1.8.05.1.1.25 0 .4-.1.15-.15.25-.3.4-.15.15-.3.35-.45.45-.15.15-.3.3-.1.6.15.3.7 1.15 1.5 1.85 1 .9 1.9 1.2 2.15 1.3.3.15.45.1.6-.05.2-.2.7-.8.9-1.1.15-.3.35-.25.6-.15l1.8.85c.3.15.5.2.55.3.1.15.1.65-.1 1.25z"/></svg></a>
 
 <script src="script.js"></script>
 <script>
