@@ -1,9 +1,8 @@
 // ---- Settings ----
 const SINCE = 1981;
 
-// Hero + about images. Drop files in assets/ and set paths here (empty = placeholder).
-const HERO_IMAGES = ["assets/hero-substation.webp", "assets/hero-panel.webp", "assets/hero-cable.webp"];
-const ABOUT_IMAGE = "assets/about-team.webp";
+// About section photo. Set to "" to hide it.
+const ABOUT_IMAGE = "assets/about-site.webp";
 
 // Clients from the company brochure: [name, director, site, year, amount in lakh]
 const CLIENTS = [
@@ -50,9 +49,6 @@ const totalLakh = CLIENTS.reduce((n, c) => n + c[4], 0);
 $("#total-amount").textContent = "₹" + Math.floor(totalLakh / 100) + " Cr+";
 
 // images
-document.querySelectorAll("#lenses .lens").forEach((el, i) => {
-  if (HERO_IMAGES[i]) el.style.backgroundImage = `url("${HERO_IMAGES[i]}")`;
-});
 if (ABOUT_IMAGE) {
   const f = document.createElement("div");
   f.className = "photo";

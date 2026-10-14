@@ -46,15 +46,10 @@ nav{display:flex;align-items:center;gap:14px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 
 /* hero */
-.hero{padding:56px 0 64px}
-.hero-in{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px}
-.lenses{position:relative;height:340px}
-.lens{position:absolute;top:0;height:100%;width:44%;clip-path:url(#lens);
-  background:#4a5261 center/cover no-repeat}
-.lens::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#ffffff08,#00000030)}
-.l1{left:0;background-color:#575f6d;background-position:22% center}
-.l2{left:27%;background-color:#7a7f87;background-position:58% center}
-.l3{left:54%;background-color:#c98a10;background-position:30% center}
+.hero{position:relative;min-height:600px;display:flex;align-items:center;padding:72px 0;
+  background:linear-gradient(90deg,rgba(35,39,46,.96) 0%,rgba(35,39,46,.85) 38%,rgba(35,39,46,.25) 75%,rgba(35,39,46,.1) 100%),url(assets/hero-bg.webp) 70% center/cover no-repeat,var(--bg)}
+.hero-in{width:100%}
+.hero-copy{max-width:560px}
 .hero-copy h1{font:600 clamp(2.2rem,5vw,3.6rem)/1.15 var(--head);margin:0 0 18px}
 .y{color:var(--yellow)}
 .hero-copy p{max-width:460px;margin:0 0 30px}
@@ -132,9 +127,8 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 
 @media (max-width:900px){
   .stats{grid-template-columns:repeat(2,1fr)}
-  .hero-in,.about-grid,.contact-grid{grid-template-columns:1fr}
-  .lenses{height:260px;max-width:420px;margin:0 auto;width:100%}
-  .hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.hero-copy .cta{justify-content:center}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{min-height:0;padding:56px 0;background:linear-gradient(180deg,rgba(35,39,46,.82) 0%,rgba(35,39,46,.7) 100%),url(assets/hero-bg.webp) 75% center/cover no-repeat,var(--bg)}
 }
 @media (max-width:820px){
   .nav-toggle{display:block}
@@ -155,9 +149,6 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
 @media (max-width:480px){.hide-xs{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* hero lens icons */
-.lens svg{position:absolute;inset:0;margin:auto;width:42%;fill:none;stroke:#ffffffb0;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;z-index:1}
-.l2 svg{fill:#ffffffb0;stroke:none}
 
 /* company details */
 .details dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:.92rem}

@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap">
+<link rel="preload" as="image" href="assets/hero-bg.webp">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -34,13 +35,6 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<!-- clip shape used by the hero images -->
-<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-  <defs><clipPath id="lens" clipPathUnits="objectBoundingBox">
-    <path d="M0.5,0 C1.05,0.28 1.05,0.72 0.5,1 C-0.05,0.72 -0.05,0.28 0.5,0Z"/>
-  </clipPath></defs>
-</svg>
 
 <div class="topbar">
   <div class="wrap topbar-in">
@@ -75,11 +69,6 @@
 <main id="main">
 <section class="hero" id="top">
   <div class="wrap hero-in">
-    <div class="lenses" aria-hidden="true" id="lenses">
-      <div class="lens l1"></div>
-      <div class="lens l2"></div>
-      <div class="lens l3"></div>
-    </div>
     <div class="hero-copy">
       <h1><span class="y">Powering</span> Your<br>Projects &amp; Properties</h1>
       <p>Govt. licensed electrical contractor &amp; consultants. Erection and commissioning of HT / LT projects across Mumbai, Navi Mumbai and Thane.</p>
