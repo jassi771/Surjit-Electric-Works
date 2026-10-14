@@ -211,3 +211,13 @@ dialog p{color:#fff;text-align:center;margin:8px 0 0}
   .reach-tx strong{font-size:.9rem}
   .reach-go{display:none}
 }
+
+/* shared card hover: yellow border + slight lift */
+.stat,.card,.steps li,.clients li,.chips li,.gallery figure{transition:border-color .15s,transform .15s}
+@media (hover:hover){
+  .stat:hover,.card:hover,.steps li:hover,.clients li:hover,.chips li:hover,.gallery figure:hover{border-color:var(--yellow);transform:translateY(-2px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .reach,.stat,.card,.steps li,.clients li,.chips li,.gallery figure{transition:none}
+  .reach:hover,.stat:hover,.card:hover,.steps li:hover,.clients li:hover,.chips li:hover,.gallery figure:hover{transform:none}
+}
